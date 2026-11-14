@@ -12,6 +12,12 @@
 import json
 import os
 
+try:  # 优先从 .env 文件加载配置（本地调试用，密钥不入库）
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 import requests
 from flask import Flask, jsonify, request, send_from_directory, stream_with_context
 
